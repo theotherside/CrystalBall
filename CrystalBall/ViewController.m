@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.predictions = [[NSArray alloc] initWithObjects:@"It is Certain,", @"It is Decidedly so", @"All signs say YES", @"The stars are not aligned", @"My reply is no", @"It is doubtful", @"Concentrate and ask again", @"Unable to answer now", nil];
+    self.predictions = [[NSArray alloc] initWithObjects:@"It is Certain", @"It is Decidedly so", @"All signs say YES", @"The stars are not aligned", @"My reply is no", @"It is doubtful", @"Concentrate and ask again", @"Unable to answer now", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -28,7 +28,9 @@
 }
 - (IBAction)buttonPressed {
     
-    self.predectionLabel.text = [self.predictions objectAtIndex:0];
+    int random = arc4random_uniform(self.predictions.count);
+    
+    self.predectionLabel.text = [self.predictions objectAtIndex:random];
 }
 
 
